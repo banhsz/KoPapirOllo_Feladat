@@ -80,6 +80,26 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 kep_jatekos.setImageResource(R.drawable.paper);
                 int gep = gepValaszt();
+                switch (gep){
+                    case 0:
+                        //papir-kő jatekos nyer
+                        toast.makeText(MainActivity.this,String.format("Játékos nyerte a kört."),Toast.LENGTH_SHORT).show();
+                        GepSebzodik();
+                        break;
+                    case 1:
+                        //jatekos: papir papir dontetlen
+                        toast.makeText(MainActivity.this,String.format("Döntetlen kör."),Toast.LENGTH_SHORT).show();
+                        dontetlen++;
+                        text_dontetlen.setText(String.format("Döntetlenek száma: %d",dontetlen));
+                        break;
+                    case 2:
+                        //játékos papir, gép olló, gép nyer
+                        toast.makeText(MainActivity.this,String.format("Gép nyerte a kört."),Toast.LENGTH_SHORT).show();
+                        JatekosSebzodik();
+                        break;
+                    default:
+                        break;
+                }
             }
         });
         ollo.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +107,26 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 kep_jatekos.setImageResource(R.drawable.scissors);
                 int gep = gepValaszt();
+                switch (gep){
+                    case 0:
+                        //ollo-kő gép nyer
+                        toast.makeText(MainActivity.this,String.format("Gép nyerte a kört."),Toast.LENGTH_SHORT).show();
+                        JatekosSebzodik();
+                        break;
+                    case 1:
+                        //jatekos: ollo papir jatekos nyer
+                        text_dontetlen.setText(String.format("Döntetlenek száma: %d",dontetlen));
+                        toast.makeText(MainActivity.this,String.format("Játékos nyerte a kört."),Toast.LENGTH_SHORT).show();
+                        GepSebzodik();
+                        break;
+                    case 2:
+                        //olló- olló dontetlen
+                        toast.makeText(MainActivity.this,String.format("Döntetlen kör."),Toast.LENGTH_SHORT).show();
+                        dontetlen++;
+                        break;
+                    default:
+                        break;
+                }
             }
         });
 
@@ -144,13 +184,15 @@ public class MainActivity extends AppCompatActivity  {
         {
             case 3:
                 jatekosElet--;
-
+                jatekos_heart_3.setImageResource(R.drawable.heart1);
                 break;
             case 2:
                 jatekosElet--;
+                jatekos_heart_2.setImageResource(R.drawable.heart1);
                 break;
             case 1:
                 jatekosElet--;
+                jatekos_heart_1.setImageResource(R.drawable.heart1);
                 //gép nyert
                 AlertHandle();
                 break;
@@ -165,12 +207,15 @@ public class MainActivity extends AppCompatActivity  {
         {
             case 3:
                 gepElet--;
+                gep_heart_3.setImageResource(R.drawable.heart1);
                 break;
             case 2:
                 gepElet--;
+                gep_heart_2.setImageResource(R.drawable.heart1);
                 break;
             case 1:
                 gepElet--;
+                gep_heart_1.setImageResource(R.drawable.heart1);
                 //jatekos nyert
                 AlertHandle();
                 break;
@@ -181,7 +226,16 @@ public class MainActivity extends AppCompatActivity  {
     }
     public void AlertHandle() {
         alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        alertDialogBuilder.setMessage("Szeretnél uj játékot?")
+        String eredmeny;
+        if (jatekosElet==0)
+        {
+             eredmeny = "Vesztettél.";
+        }
+        else
+        {
+             eredmeny = "Nyertél!";
+        }
+        alertDialogBuilder.setMessage(eredmeny+" Szeretnél uj játékot?")
                 .setPositiveButton("Igen", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
