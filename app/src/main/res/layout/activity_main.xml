@@ -66,6 +66,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/text_dontetlen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Döntetlenek száma: 0"
@@ -83,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="A gép választása"
-        android:layout_marginBottom="25sp"
+        android:layout_marginBottom="10sp"
         android:textSize="50sp"
         android:gravity="center"
         />
@@ -106,8 +107,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="50sp">
+        android:gravity="center">
         <Button
             android:layout_width="120sp"
             android:layout_height="120sp"
