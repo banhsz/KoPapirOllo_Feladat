@@ -71,7 +71,8 @@
         android:layout_height="wrap_content"
         android:text="Döntetlenek száma: 0"
         android:gravity="center"
-        android:textSize="35sp"/>
+        android:textSize="35sp"
+        android:layout_marginBottom="15sp"/>
     <ImageView
         android:id="@+id/kep_gep"
         android:layout_width="150sp"
@@ -86,7 +87,7 @@
         android:layout_height="wrap_content"
         android:text="A gép választása"
         android:layout_marginBottom="10sp"
-        android:textSize="50sp"
+        android:textSize="30sp"
         android:gravity="center"
         android:background="@color/red"
         />
@@ -103,11 +104,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="A te választásod"
-        android:textSize="50sp"
+        android:textSize="30sp"
         android:gravity="center"
         android:background="@color/green"
         />
-
+    <TextView
+        android:id="@+id/text_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Válassz:"
+        android:layout_marginTop="50sp"
+        android:textSize="50sp"
+        android:gravity="center"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
