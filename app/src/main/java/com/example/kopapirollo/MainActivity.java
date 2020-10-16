@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity  {
                         break;
                     case 1:
                         //jatekos: ollo papir jatekos nyer
-                        text_dontetlen.setText(String.format("Döntetlenek száma: %d",dontetlen));
                         toast.makeText(MainActivity.this,String.format("Játékos nyerte a kört."),Toast.LENGTH_SHORT).show();
                         GepSebzodik();
                         break;
@@ -123,6 +122,7 @@ public class MainActivity extends AppCompatActivity  {
                         //olló- olló dontetlen
                         toast.makeText(MainActivity.this,String.format("Döntetlen kör."),Toast.LENGTH_SHORT).show();
                         dontetlen++;
+                        text_dontetlen.setText(String.format("Döntetlenek száma: %d",dontetlen));
                         break;
                     default:
                         break;
